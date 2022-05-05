@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	example1()
 	exmaple2()
+	example3()
 }
 
 func example1() {
@@ -48,4 +49,25 @@ func exmaple2() {
 	)
 
 	fmt.Println(f, g, h)
+}
+
+func example3() {
+	fmt.Println("example3")
+	type CarOption uint64
+
+	const (
+		GPS          CarOption = 1 << iota
+		AWD                    // 2
+		SunRoof                // 4
+		HeatedSeat             // 8
+		DriverAssist           // 16
+	)
+
+	var o CarOption
+	o = SunRoof | HeatedSeat
+	if o&SunRoof != 0 {
+		fmt.Println("サンルーフ付き")
+	}
+
+	fmt.Println(AWD, SunRoof, HeatedSeat, DriverAssist)
 }

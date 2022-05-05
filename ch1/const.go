@@ -22,13 +22,14 @@ func main() {
 	// constで定義すると値の書き換えはできなくなる
 	// f = 2
 
+	//
 	const (
 		g int32          = 4294967295
 		h []int          = []int{1, 2, 3}
 		i map[string]int = map[string]int{
 			"Tokyo": 10,
 		}
-		j = function()
+		j = sampleFunction()
 	)
 }
 
