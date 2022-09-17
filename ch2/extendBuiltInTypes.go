@@ -14,6 +14,21 @@ const (
 	StatusForbidden       HTTPStatus = 403
 )
 
+func (s HTTPStatus) String() string {
+	switch s {
+	case StatusOK:
+		return "OK"
+	case StatusUnauthorized:
+		return "Unauthorized"
+	case StatusPaymentRequired:
+		return "Payment Required"
+	case StatusForbidden:
+		return "Forbidden"
+	default:
+		return fmt.Sprintf("HTTPStatus(%d", s)
+	}
+}
+
 type NationalRoute int
 
 const (
@@ -43,20 +58,5 @@ func main() {
 	fmt.Println(status.String()) // Unauthorized
 
 	var route NationalRoute = 201
-	fmt.Println(route.String())
-}
-
-func (s HTTPStatus) String() string {
-	switch s {
-	case StatusOK:
-		return "OK"
-	case StatusUnauthorized:
-		return "Unauthorized"
-	case StatusPaymentRequired:
-		return "Payment Required"
-	case StatusForbidden:
-		return "Forbidden"
-	default:
-		return fmt.Sprintf("HTTPStatus(%d", s)
-	}
+	fmt.Println(route.String()) // 国道201号線
 }
